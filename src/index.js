@@ -4,10 +4,12 @@ import axios from "axios";
 import Form from "./components/Form";
 import Charts from "./components/Charts";
 import Navbar from "./components/Navbar";
+import useDarkMode from "./hooks/useDarkMode";
 
 import "./styles.scss";
 
 const App = () => {
+  const [darkMode, setDarkMode] = useDarkMode("dark_mode", false);
   const [coinData, setCoinData] = useState([]);
   const [currentID, setCurrentID] = useState("bitcoin");
   const [currentCoin, setCurrentCoin] = useState();
@@ -36,14 +38,14 @@ const App = () => {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Form
         coinData={coinData}
         setCurrentCoin={setCurrentCoin}
         currentID={currentID}
         setCurrentID={setCurrentID}
       />
-      <Charts currentCoin={currentCoin} />
+      <Charts currentCoin={currentCoin} darkMode={darkMode}/>
     </div>
   );
 };

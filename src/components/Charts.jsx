@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "./Chart";
 
-const Charts = ({ currentCoin }) => {
+const Charts = ({ currentCoin, darkMode }) => {
   if (currentCoin) {
     return (
       <div className="charts">
@@ -11,7 +11,7 @@ const Charts = ({ currentCoin }) => {
           <div className="coin__logo">
             <img src={currentCoin.image.small} height="40" alt={currentCoin.name} />
           </div>
-          <Chart sparklineData={currentCoin.market_data.sparkline_7d.price} />
+          <Chart sparklineData={currentCoin.market_data.sparkline_7d.price} darkMode={darkMode} />
         </div>
         )}
       </div>
