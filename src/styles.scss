@@ -242,6 +242,13 @@ text-align: left;
   width: 50px;
 }
 
+form select {
+  margin-top: 2%;
+  min-width: 100px;
+  height: 30px;
+  font-size: 15px;
+}
+
 .dark-mode {
   color: #fff;
   background-color: #121212;
