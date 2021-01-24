@@ -6,9 +6,8 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
-  Tooltip
+  Tooltip,
 } from "recharts";
-import { darkMode } from './Navbar'
 
 const Chart = ({ sparklineData, darkMode }) => {
   if (sparklineData) {
@@ -26,12 +25,19 @@ const Chart = ({ sparklineData, darkMode }) => {
         }
         return null;
       })
-      .filter(data => data);
+      .filter((data) => data);
 
     return (
       <LineChart width={1100} height={300} data={formattedData}>
-        <Line type="monotone" dataKey="value" stroke={ darkMode === true? "#FF0000" : "#8884d8"} />
-        <CartesianGrid stroke={darkMode === true? "#800000" :"#ccc"} strokeDasharray="5 5" />
+        <Line
+          type="monotone"
+          dataKey="value"
+          stroke={darkMode === true ? "#FF0000" : "#8884d8"}
+        />
+        <CartesianGrid
+          stroke={darkMode === true ? "#800000" : "#ccc"}
+          strokeDasharray="5 5"
+        />
         <XAxis dataKey="date" interval={3} />
         <YAxis />
         <Tooltip />
